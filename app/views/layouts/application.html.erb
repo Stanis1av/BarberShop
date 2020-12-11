@@ -32,11 +32,26 @@
         <div class="navbar-nav">
           <%= link_to 'Book an appointment', root_path, class: "nav-item nav-link" %>    
         </div>
+        <div class="ml-auto p-2 bd-highlight"> <!-- Размещение эл-та в крайнем правом углу-->
+      
+        <% if user_signed_in? %>
+        <b class="text-light"><%= current_user.email %></b>
+
+          | <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+
+        <% else %>
+
+          <%= link_to 'Войти', new_user_session_path, class: "btn btn-outline-success" %>
+
+        <% end %>
+
+        </div>
       </div>
     </nav>
 
-    <div class="container">
-      <br/>
+    <div class="container-fluid">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </body>
