@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'welcome#index'
 
-  resource :bookinkg, only: [:new, :create, :show]
+  resource :booking, only: [:new, :create, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
