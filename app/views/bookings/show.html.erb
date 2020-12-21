@@ -1,0 +1,46 @@
+<div class="row">
+  	<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+
+    <h2 class="text-center">Ваша бронь</h2>
+
+    <table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Наименование</th>
+	      <th scope="col">Значение</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <th scope="row">1</th>
+	      <td><b>Имя</b></td>
+	      <td><%= @booking.last.first_name %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td><b>Фамилия</b></td>
+	      <td><%= @booking.last.last_name %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Паримахер</b></td>
+	      <td><%= @booking.last.hairdresser %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Дата и время</b></td>
+	      <td><%= @booking.last.dateandtime %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Номер телефона</b></td>
+	      <td><%= @booking.last.phone_num %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Примечание</b></td>
+	      <td><%= @booking.last.note %></td>
+	    </tr>
+	  </tbody>
+	</table>

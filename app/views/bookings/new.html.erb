@@ -3,41 +3,39 @@
 
     <h2 class="text-center">Онлайн запись</h2>
 
-		<%= form_for :booking, url: booking_path do |f| %>
+		<%= form_for :booking, url: bookings_path do |f| %>
 
 		<div class="form-group">
-			<%= f.label :first_name %><br/>
+			<%= f.label "Введите имя" %><br/>
 			<%= f.text_field :first_name, class: "form-control" %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label :last_name %><br/>
+			<%= f.label "Введите фамилию" %><br/>
 			<%= f.text_field :last_name, class: "form-control" %>
 		</div>
 
-		<div class="form-group row">
-		  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-		  <div class="col-10">
-		    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-		  </div>
+		<div class="form-group">
+			<%= f.label "Выберите парикмахера" %><br/>
+			<%= select_tag(:hairdresser, options_for_select(['Марри Джэн', 'Салли Гудман', 'Фреди Колман']), class: "form-control") %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label :dateandtime %><br/>
-			<%= f.text_field :dateandtime, class: "form-control" %>
+		  <%= f.label "Введите дату и время" %>
+		    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="dateandtime">
 		</div>
 
 		<div class="form-group">
-			<%= f.label :phone_num %><br/>
+			<%= f.label "Номер телефона" %><br/>
 			<%= f.text_field :phone_num, class: "form-control" %>
 		</div>
 
 		<div class="form-group">
-			<%= f.label :note %><br/>
+			<%= f.label "Введите заметку для нас" %><br/>
 			<%= f.text_area :note, class: "form-control", rows: 5 %>
 		</div>
 
-		<div class="actions">
+		<div class="form-group">
 			<%= f.submit "Записаться", class: "btn btn-primary" %>
 		</div>
 			<% end %>

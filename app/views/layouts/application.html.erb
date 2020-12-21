@@ -30,14 +30,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <%= link_to 'Записаться', new_booking_path, class: "nav-item nav-link" %>    
+          <%= link_to 'Записаться', new_bookings_path, class: "nav-item nav-link" %>    
         </div>
         <div class="ml-auto p-2 bd-highlight"> <!-- Размещение эл-та в крайнем правом углу-->
       
         <% if user_signed_in? %>
         <b class="text-light"><%= current_user.username %></b>
 
-          | <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+          | <%= link_to 'Редактировать аккаунт', edit_user_registration_path, class: "btn btn-outline-warning" %>
+          <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
 
         <% else %>
 
