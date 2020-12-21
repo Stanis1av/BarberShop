@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking  = Booking.new(booking_params)
+
     @booking.hairdresser = params[:hairdresser]
     @booking.dateandtime = params[:dateandtime]
 
