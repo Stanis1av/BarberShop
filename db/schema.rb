@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_192800) do
+ActiveRecord::Schema.define(version: 2021_02_22_192241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,19 +21,33 @@ ActiveRecord::Schema.define(version: 2020_12_21_192800) do
   end
 
   create_table "bookings", force: :cascade do |t|
+    t.bigint "location_id", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "hairdresser"
     t.datetime "dateandtime"
     t.string "phone_num"
     t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_bookings_on_location_id"
   end
 
   create_table "contacts", force: :cascade do |t|
     t.string "email"
     t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dashboards", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "city"
+    t.string "branch_name"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,4 +66,5 @@ ActiveRecord::Schema.define(version: 2020_12_21_192800) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "bookings", "locations"
 end
