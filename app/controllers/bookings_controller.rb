@@ -4,12 +4,12 @@ class BookingsController < ApplicationController
   end
 
   def new
-
+    @booking  = Booking.new
+    @location = Location.all
   end
 
   def create
     @booking  = Booking.new(booking_params)
-
 
     if @booking.save
       redirect_to bookings_url
@@ -21,6 +21,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:first_name, :last_name, :dateandtime, :phone_num, :note)
+    params.require(:booking).permit(:location_id, :first_name, :last_name, :dateandtime, :phone_num, :note)
   end
 end
