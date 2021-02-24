@@ -59,6 +59,8 @@
   </div>
 
   <div class="tab-pane fade" id="pills-personal_data" role="tabpanel" aria-labelledby="pills-personal_data-tab">
+    <!-- <div class="row"> -->
+      <div class="col-sm-5">
         <div class="form-group">
           <%= f.label "Введите имя" %><br/>
           <%= f.text_field :first_name, class: "form-control" %>
@@ -71,8 +73,7 @@
 
         <div class="form-group">
           <%= f.label "Введите дату и время" %>
-          <%= form.datetime_local_field :dateandtime %>
-            <!-- <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="dateandtime"> -->
+          <%= f.datetime_local_field :dateandtime, value: DateTime.civil(2007, 12, 4, 0, 0, 0, 0).to_formatted_s(:db), class: "form-control" %>
         </div>
 
         <div class="form-group">
@@ -86,8 +87,10 @@
         </div>
 
         <div class="form-group">
-      <%= f.submit "Записаться", class: "btn btn-primary" %>
-    </div>
+          <%= f.submit "Записаться", class: "btn btn-primary" %>
+        </div>
         <% end %>
-  </div>
+      </div>
+    </div>
+  <!-- </div> -->
 </div>
