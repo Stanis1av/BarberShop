@@ -5,7 +5,9 @@ class BookingsController < ApplicationController
 
   def new
     @booking  = Booking.new
-    @location = Location.all
+    @locations = Location.all
+    @services = Service.all
+    @hairdressers = Hairdresser.all
   end
 
   def create
@@ -21,6 +23,13 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:location_id, :first_name, :last_name, :dateandtime, :phone_num, :note)
+    params.require(:booking).permit(:location_id,
+                                    :service_id,
+                                    :hairdresser_id,
+                                    :first_name,
+                                    :last_name,
+                                    :dateandtime,
+                                    :phone_num,
+                                    :note)
   end
 end

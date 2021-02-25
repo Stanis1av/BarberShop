@@ -14,20 +14,20 @@
 </ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-location" role="tabpanel" aria-labelledby="pills-location-tab">
-    <%= form_with model: @booking, local: true do |f| %>
-        <div class="row">
-        <% @location.each do |l| %>
+    <%= form_with model: @booking, local: true do |form| %>
+      <div class="row">
+      <% @locations.each do |location| %>
     
     <div class="col-sm-4">
       <div class="card">
         <img src="<%= asset_path('map_city.png') %>" class="card-img-top" >
 
         <div class="card-body">
-          <h5 class="card-title"><%= l.branch_name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= l.location %></h6>
+          <h5 class="card-title"><%= location.branch_name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= location.location %></h6>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar augue vel sem sagittis, in convallis arcu pulvinar. Fusce eget neque enim.</p>
-          <%= f.radio_button :location_id, l.id %>
-          <b><%= l.id %></b>
+          <%= form.radio_button :location_id, location.id %>
+          <b><%= location.id %></b>
            
         </div>
       </div>
@@ -36,58 +36,80 @@
 </div>
   </div>
   <div class="tab-pane fade" id="pills-service" role="tabpanel" aria-labelledby="pills-service-tab">
-        <div class="row">
+    <div class="row">
           
-        <br/><% @location.each do |l| %>
+<br/><% @services.each do |service| %>
     
     <div class="col-sm-4">
       <div class="card">
-        <img src="<%= asset_path('map_city.png') %>" class="card-img-top" >
+        <img src="<%= asset_path('scissor-comb.jpg') %>" class="card-img-top" >
 
         <div class="card-body">
-          <h5 class="card-title"><%= l.branch_name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= l.location %></h6>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar augue vel sem sagittis, in convallis arcu pulvinar. Fusce eget neque enim.</p>
+          <h5 class="card-title"><%= service.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= service.price %></h6>
+          <p class="card-text"><%= service.description %></p>
           
+          <%= form.radio_button :service_id, service.id %>
+          <b><%= service.id %></b>
         </div>
       </div>
     </div>
-   <% end %>
+    <% end %>
   </div>
   </div>
   <div class="tab-pane fade" id="pills-hairdresser" role="tabpanel" aria-labelledby="pills-hairdresser-tab">
+    <div class="row">
+          
+<br/><% @hairdressers.each do |hairdresser| %>
+    
+    <div class="col-sm-4">
+      <div class="card">
+        <img src="<%= asset_path('hairdresser.jpg') %>" class="card-img-top" >
+
+        <div class="card-body">
+          <h5 class="card-title"><%= hairdresser.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= hairdresser.position %></h6>
+          <p class="card-text"><%= hairdresser.description %></p>
+          
+          <%= form.radio_button :service_id, hairdresser.id %>
+          <b><%= hairdresser.id %></b>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
   </div>
 
   <div class="tab-pane fade" id="pills-personal_data" role="tabpanel" aria-labelledby="pills-personal_data-tab">
     <!-- <div class="row"> -->
       <div class="col-sm-5">
         <div class="form-group">
-          <%= f.label "Введите имя" %><br/>
-          <%= f.text_field :first_name, class: "form-control" %>
+          <%= form.label "Введите имя" %><br/>
+          <%= form.text_field :first_name, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label "Введите фамилию" %><br/>
-          <%= f.text_field :last_name, class: "form-control" %>
+          <%= form.label "Введите фамилию" %><br/>
+          <%= form.text_field :last_name, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label "Введите дату и время" %>
-          <%= f.datetime_local_field :dateandtime, value: DateTime.civil(2007, 12, 4, 0, 0, 0, 0).to_formatted_s(:db), class: "form-control" %>
+          <%= form.label "Введите дату и время" %>
+          <%= form.datetime_local_field :dateandtime, value: DateTime.civil(2007, 12, 4, 0, 0, 0, 0).to_formatted_s(:db), class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label "Номер телефона" %><br/>
-          <%= f.text_field :phone_num, class: "form-control" %>
+          <%= form.label "Номер телефона" %><br/>
+          <%= form.text_field :phone_num, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label "Введите заметку для нас" %><br/>
-          <%= f.text_area :note, class: "form-control", rows: 5 %>
+          <%= form.label "Введите заметку для нас" %><br/>
+          <%= form.text_area :note, class: "form-control", rows: 5 %>
         </div>
 
         <div class="form-group">
-          <%= f.submit "Записаться", class: "btn btn-primary" %>
+          <%= form.submit "Записаться", class: "btn btn-primary" %>
         </div>
         <% end %>
       </div>
