@@ -45,7 +45,7 @@
           <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
 
         <% else %>
-          <%= link_to 'Зарегистрироваться', new_registration_path(resource_name), class: "btn btn-outline-success" %>
+          <%= link_to 'Зарегистрироваться', new_user_registration_path, class: "btn btn-outline-success" %>
           <%= link_to 'Войти', new_user_session_path, class: "btn btn-outline-success" %>
 
         <% end %>
