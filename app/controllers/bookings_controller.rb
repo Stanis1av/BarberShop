@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking  = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to bookings_url
+      redirect_to bookings_url, notice: "Онлайн запись прошла успешно"
     else
       render action: 'new'
     end
