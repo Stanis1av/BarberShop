@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_02_25_192044) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "location_id", null: false
-    t.bigint "services_id", null: false
-    t.bigint "hairdressers_id", null: false
+    t.bigint "service_id", null: false
+    t.bigint "hairdresser_id", null: false
     t.string "first_name"
     t.string "last_name"
     t.datetime "dateandtime"
@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2021_02_25_192044) do
     t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["hairdressers_id"], name: "index_bookings_on_hairdressers_id"
+    t.index ["hairdresser_id"], name: "index_bookings_on_hairdresser_id"
     t.index ["location_id"], name: "index_bookings_on_location_id"
-    t.index ["services_id"], name: "index_bookings_on_services_id"
+    t.index ["service_id"], name: "index_bookings_on_service_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_192044) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "bookings", "hairdressers", column: "hairdressers_id"
+  add_foreign_key "bookings", "hairdressers"
   add_foreign_key "bookings", "locations"
-  add_foreign_key "bookings", "services", column: "services_id"
+  add_foreign_key "bookings", "services"
 end
