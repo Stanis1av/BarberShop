@@ -1,0 +1,55 @@
+<% @bookings.each do |booking| %>
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Наименование</th>
+	      <th scope="col">Значение</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	      <th scope="row">1</th>
+	      <td><b>ID услуги</b></td>
+	      <td><%= booking.id %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td><b>Имя клиента</b></td>
+	      <td><%= booking.first_name %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Фамилия клиента</b></td>
+	      <td><%= booking.last_name %></td>
+	    </tr>
+	    
+	    <tr>
+	      <th scope="row">4</th>
+	      <td><b>Дата и время</b></td>
+	      <td><%= booking.dateandtime %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Номер телефона</b></td>
+	      <td><%= booking.phone_num %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">6</th>
+	      <td><b>Примечание</b></td>
+	      <td><%= booking.note %></td>
+	    </tr>	    
+	    <tr>
+	      <th scope="row">7</th>
+	      <td><b>Местоположение</b></td>
+	      <td>
+	      	<% Location.where(id: booking.location_id).each do |l| %>
+	      		<p><b>Город: </b> <%= l.city %></p>
+	      		<p><b>Название филиала: </b> <%= l.branch_name %></p>
+	      		<p><b>Адресс: </b> <%= l.location %></p>
+	      	<% end %>	
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+<% end %>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'layouts/header' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/navbar_admin' %>
+
+    <div class="container-fluid">
+      <br/>
+      <%= render 'layouts/alerts' %>
+      <%= yield %>
+    </div>
+  </body>
+</html>
