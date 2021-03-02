@@ -4,10 +4,14 @@ class BookingsController < ApplicationController
   end
 
   def new
+    # if current_user.superadmin_role?
     @booking  = Booking.new
     @locations = Location.all
     @services = Service.all
     @hairdressers = Hairdresser.all
+    # else
+    #   redirect_to root_path, notice: "Недостаточно прав доступа"
+    # end
   end
 
   def create
