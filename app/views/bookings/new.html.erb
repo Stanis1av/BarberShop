@@ -14,15 +14,14 @@
 </ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-location" role="tabpanel" aria-labelledby="pills-location-tab">
-    <%= form_with model: @booking, local: true do |form| %>
-      <div class="row">
-      <% @locations.each do |location| %>
-    
-    <div class="col-sm-4">
-      <div class="card">
-        <img src="<%= asset_path('map_city.png') %>" class="card-img-top" >
+  <%= form_with model: @booking, local: true do |form| %>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <% @locations.each do |location| %>
 
-        <div class="card-body">
+    <div class="col mb-4">
+    <div class="card">
+      <img src="<%= asset_path('map_city.png') %>" class="card-img-top">
+      <div class="card-body">
           <h5 class="card-title"><%= location.branch_name %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= location.location %></h6>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar augue vel sem sagittis, in convallis arcu pulvinar. Fusce eget neque enim.</p>
@@ -30,17 +29,17 @@
           <b><%= location.id %></b>
            
         </div>
-      </div>
     </div>
-   <% end %>
-</div>
+  </div>
+  <% end %>
+  </div>
   </div>
   <div class="tab-pane fade" id="pills-service" role="tabpanel" aria-labelledby="pills-service-tab">
-    <div class="row">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
           
-<br/><% @services.each do |service| %>
+    <% @services.each do |service| %>
     
-    <div class="col-sm-4">
+    <div class="col mb-4">
       <div class="card">
         <img src="<%= asset_path('scissor-comb.jpg') %>" class="card-img-top" >
 
@@ -58,11 +57,11 @@
   </div>
   </div>
   <div class="tab-pane fade" id="pills-hairdresser" role="tabpanel" aria-labelledby="pills-hairdresser-tab">
-    <div class="row">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
           
 <br/><% @hairdressers.each do |hairdresser| %>
     
-    <div class="col-sm-4">
+    <div class="col mb-4">
       <div class="card">
         <img src="<%= asset_path('hairdresser.jpg') %>" class="card-img-top" >
 
