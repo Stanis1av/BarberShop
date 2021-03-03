@@ -1,6 +1,9 @@
     <!-- _navbar_admin.html.erb -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <%= link_to 'BarberShop Admin', admin_dashboard_path, class: "navbar-brand" %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to(admin_dashboard_path, class: "navbar-brand") do %>
+        BarberShop
+        <strong class="text-danger">Admin</strong>
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
