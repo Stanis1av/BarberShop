@@ -10,7 +10,12 @@
     <div class="container-fluid">
       <br/>
       <%= render 'layouts/alerts' %>
-      <%= yield %>
+        <div role="tabpanel">
+          <div class="row row-cols-2">
+            <%= render 'layouts/sidebar_admin' %>
+            <%= yield %>
+          </div>
+        </div>
     </div>
   </body>
 </html>
