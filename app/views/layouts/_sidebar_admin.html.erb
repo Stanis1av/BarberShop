@@ -1,12 +1,14 @@
 <div class="col-3">  
   <!-- List group -->
-  <ul class="nav flex-column list-group">
-  <li class="nav-item" routerLinkActive="active">
-    <a class="nav-link list-group-item" href="<%= admin_bookings_path %>">Active</a>
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">Навигация</div>
+  <ul class="nav flex-column list-group nav-sm list-group-sm">
+  <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_bookings_path %>">Active</a>
   </li>
-  <li class="nav-item" routerLinkActive="active">
-    <a class="nav-link list-group-item" href="<%= admin_dashboard_path %>">Link</a>
+  <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_dashboard_path) %>" href="<%= admin_dashboard_path %>">Link</a>
   </li>
   </ul>
-  </nav>
+  </div>
 </div>
