@@ -5,3 +5,28 @@
     color: red;
     font-weight:bool;
 }
+
+.list-group-item {
+	// padding: 0.2rem 0.2rem;
+    padding-top: 0.2rem;
+    padding-right: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 1.2rem;
+    }
+
+.table thead:first-child tr:first-child th, .table thead:first-child tr:first-child td {
+    border-top: 0;
+    border-top-width: 0px;
+    border-top-style: initial;
+    border-top-color: initial;
+}
+
+body .table .shrink {
+    width: 1px;
+    white-space: nowrap;
+}
+
+.table-condensed th, .table-condensed td {
+    padding: 4px 5px;
+}
+
