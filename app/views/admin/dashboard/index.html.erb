@@ -1,8 +1,8 @@
-<div class="col-9">
-	<h2>Панель Администрирования</h2>
-	<hr/>
-	<div class="table-responsive">
-	<table class="table table-striped table-sm">
+<h3>Панель Администрирования</h3>
+<hr/>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
   <thead>
     <tr>
       <th class="shrink" scope="col">Название модели</th>
@@ -13,22 +13,35 @@
   </thead>
   <tbody>
     <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
+      <td><%= link_to 'Онлайн запись', admin_bookings_path %></td>
+      <td><%= @bookings.last.updated_at %></td>
+      <td><%= @bookings.size %></td>
+      <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_bookings_path, title: "", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать всё' }) do %>
+      		<%= icon("list-ul", class: "bi bi-list-ul") %>
+      	  <% end %>
+
+      	  <%= link_to(new_admin_booking_path, title: "", class: "btn btn-outline-success", data: { toggle: 'tooltip', placement: 'top', original_title: 'Добавить' }) do %>
+      		<%= icon("plus", class: "bi bi-plus") %>
+      	  <% end %>
+      	</div>
+      </td>
     </tr>
     <tr>
-      
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>
+      	...
+      </td>
     </tr>
     <tr>
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
+      <td>
+      	...
+      </td>
     </tr>
   </tbody>
 </table>
-</div>
-	
 </div>
