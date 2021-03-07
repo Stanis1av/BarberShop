@@ -1,55 +1,43 @@
-<% @bookings.each do |booking| %>
-	<table class="table">
-	  <thead class="thead-dark">
-	    <tr>
-	      <th scope="col">#</th>
-	      <th scope="col">Наименование</th>
-	      <th scope="col">Значение</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  	<tr>
-	      <th scope="row">1</th>
-	      <td><b>ID услуги</b></td>
-	      <td><%= booking.id %></td>
-	    </tr>
-	    <tr>
-	      <th scope="row">2</th>
-	      <td><b>Имя клиента</b></td>
-	      <td><%= booking.first_name %></td>
-	    </tr>
-	    <tr>
-	      <th scope="row">3</th>
-	      <td><b>Фамилия клиента</b></td>
-	      <td><%= booking.last_name %></td>
-	    </tr>
-	    
-	    <tr>
-	      <th scope="row">4</th>
-	      <td><b>Дата и время</b></td>
-	      <td><%= booking.dateandtime %></td>
-	    </tr>
-	    <tr>
-	      <th scope="row">5</th>
-	      <td><b>Номер телефона</b></td>
-	      <td><%= booking.phone_num %></td>
-	    </tr>
-	    <tr>
-	      <th scope="row">6</th>
-	      <td><b>Примечание</b></td>
-	      <td><%= booking.note %></td>
-	    </tr>	    
-	    <tr>
-	      <th scope="row">7</th>
-	      <td><b>Местоположение</b></td>
-	      <td>
-	      	<% Location.where(id: booking.location_id).each do |l| %>
-	      		<p><b>Город: </b> <%= l.city %></p>
-	      		<p><b>Название филиала: </b> <%= l.branch_name %></p>
-	      		<p><b>Адресс: </b> <%= l.location %></p>
-	      	<% end %>	
-	      </td>
-	    </tr>
-	  </tbody>
-	</table>
-<% end %>
+<h3>Список записей</h3>
+<hr/>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th class="" scope="col">Id</th>
+      <th class="" scope="col">Имя</th>
+      <th class="" scope="col">Фамилия</th>
+      <th class="" scope="col">Время</th>
+      <th class="" scope="col">Город</th>
+      <th class="" scope="col">Филиал</th>
+      <th class="" scope="col">Адресс</th>
+      <th class="shrink" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.id %></td>
+      <td><%= booking.first_name %></td>
+      <td><%= booking.last_name %></td>
+      <td><%= booking.dateandtime %></td>
+      <% Location.where(id: booking.location_id).each do |l| %>
+        <td><%= l.city %></td>
+        <td><%= l.branch_name %></td>
+        <td><%= l.location %></td>
+      <% end %>
+      <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_bookings_path, title: "", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать всё' }) do %>
+          <%= icon("list-ul", class: "bi bi-list-ul") %>
+          <% end %>
+
+          <%= link_to(new_admin_booking_path, title: "", class: "btn btn-outline-success", data: { toggle: 'tooltip', placement: 'top', original_title: 'Добавить' }) do %>
+          <%= icon("plus", class: "bi bi-plus") %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
