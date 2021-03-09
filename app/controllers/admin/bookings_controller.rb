@@ -1,41 +1,45 @@
 class Admin::BookingsController < Admin::BaseController
   def index
-    @bookings = Booking.all
+    @bookings_admin = Booking.all
   end
 
   def new
+    @bookings_admin = Booking.new
+    @locations_admin = Location.all
+    @services_admin = Service.all
+    @hairdressers_admin = Hairdresser.all
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @bookings_admin = Booking.new(booking_params)
 
-    if @booking.save
-      redirect_to @booking
+    if @bookings_admin.save
+      redirect_to admin_bookings_url, notice: "Онлайн запись прошла успешно (админ)"
     else
-      render action: 'new'
+      render action: 'new', alert: "Онлайн запись провалилась (админ)"
     end
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    @booking_admin = Booking.find(params[:id])
   end
 
   def edit
-    @booking = Booking.find(params[:id])
+    @booking_admin = Booking.find(params[:id])
   end
 
   def update
-    @booking = Booking.find(params[:id])
+    @booking_admin = Booking.find(params[:id])
 
-    if @booking.update(booking_params)
-      redirect_to @booking
+    if @booking_admin.update(booking_params)
+      redirect_to @booking_admin
     else
       render action: 'edit'
     end
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
+    @booking_admin = Booking.find(params[:id])
 
   end
 
