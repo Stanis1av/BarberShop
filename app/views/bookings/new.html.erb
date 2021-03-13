@@ -12,9 +12,10 @@
     <a class="nav-link" id="pills-personal_data-tab" data-toggle="pill" href="#pills-personal_data" role="tab" aria-controls="pills-personal_data" aria-selected="false">Персональные данные</a>
   </li>
 </ul>
+<%= form_with model: @booking, local: true do |form| %>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-location" role="tabpanel" aria-labelledby="pills-location-tab">
-  <%= form_with model: @booking, local: true do |form| %>
+  
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
     <% @locations.each do |location| %>
 
@@ -110,8 +111,10 @@
         <div class="form-group">
           <%= form.submit "Записаться", class: "btn btn-primary" %>
         </div>
-        <% end %>
+        
       </div>
+      
     </div>
   <!-- </div> -->
 </div>
+<% end %>
