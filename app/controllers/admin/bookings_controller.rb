@@ -41,6 +41,12 @@ class Admin::BookingsController < Admin::BaseController
   def destroy
     @booking_admin = Booking.find(params[:id])
 
+    if @booking_admin.destroy
+      redirect_to admin_bookings_url, notice: "Успешно удалено!"
+    else
+      redirect_to admin_bookings_url, alert: "Не удалось удалить обЪект"
+    end
+
   end
 
   private
