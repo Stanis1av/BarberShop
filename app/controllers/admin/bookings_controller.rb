@@ -26,15 +26,18 @@ class Admin::BookingsController < Admin::BaseController
 
   def edit
     @booking_admin = Booking.find(params[:id])
+    @locations_admin = Location.all
+    @services_admin = Service.all
+    @hairdressers_admin = Hairdresser.all
   end
 
   def update
     @booking_admin = Booking.find(params[:id])
 
     if @booking_admin.update(booking_params)
-      redirect_to @booking_admin
+      redirect_to admin_bookings_url, notice: "Успешно отредактированно!"
     else
-      render action: 'edit'
+      redirect_to admin_bookings_url, alert: "Не удалось отредактировать объект"
     end
   end
 
@@ -44,7 +47,7 @@ class Admin::BookingsController < Admin::BaseController
     if @booking_admin.destroy
       redirect_to admin_bookings_url, notice: "Успешно удалено!"
     else
-      redirect_to admin_bookings_url, alert: "Не удалось удалить обЪект"
+      redirect_to admin_bookings_url, alert: "Не удалось удалить объект"
     end
 
   end
