@@ -51,6 +51,16 @@
 	      	<% end %>	
 	      </td>
 	    </tr>
+	    <tr>
+	      <th scope="row">8</th>
+	      <td><b>Создано</b></td>
+	      <td><%= @booking_admin.created_at %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">9</th>
+	      <td><b>Обновлено</b></td>
+	      <td><%= @booking_admin.updated_at %></td>
+	    </tr>
 	  </tbody>
 	</table>
 	<%= link_to(edit_admin_booking_path(@booking_admin), class: "btn btn-warning") do %>
