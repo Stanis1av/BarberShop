@@ -1,1 +1,65 @@
-<h3>Подробности для</h3>
+  <h2 class="text-center">Ваша бронь</h2>
+
+    <table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Наименование</th>
+	      <th scope="col">Значение</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	      <th scope="row">1</th>
+	      <td><b>ID услуги</b></td>
+	      <td><%= @booking_admin.id %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td><b>Имя клиента</b></td>
+	      <td><%= @booking_admin.first_name %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Фамилия клиента</b></td>
+	      <td><%= @booking_admin.last_name %></td>
+	    </tr>
+	    
+	    <tr>
+	      <th scope="row">4</th>
+	      <td><b>Дата и время</b></td>
+	      <td><%= @booking_admin.dateandtime %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Номер телефона</b></td>
+	      <td><%= @booking_admin.phone_num %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">6</th>
+	      <td><b>Примечание</b></td>
+	      <td><%= @booking_admin.note %></td>
+	    </tr>	    
+	    <tr>
+	      <th scope="row">7</th>
+	      <td><b>Местоположение</b></td>
+	      <td>
+	      	<% Location.where(id: @booking_admin.location_id).each do |l| %>
+	      		<p><b>Город: </b> <%= l.city %></p>
+	      		<p><b>Название филиала: </b> <%= l.branch_name %></p>
+	      		<p><b>Адресс: </b> <%= l.location %></p>
+	      	<% end %>	
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<%= link_to(edit_admin_booking_path(@booking_admin), class: "btn btn-warning") do %>
+        <%= icon("pencil-square", class: "bi bi-pencil-square") %>
+        Редактировать
+    <% end %>
+
+    <%= link_to(admin_booking_path(@booking_admin), method: :delete, title: "", class: "btn btn-danger", data: { confirm: 'Вы действительно хотите удалить объект?' }) do %>
+    	<%= icon("backspace-reverse", class: "bi bi-bi bi-backspace-reverse") %>
+    	Удалить
+    <% end %>
+    <br/>
