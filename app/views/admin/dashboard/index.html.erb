@@ -27,11 +27,15 @@
       </td>
     </tr>
     <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>
-      	...
+      <td><%= link_to 'Пользователи', admin_users_path %></td>
+      <td><%= @users.last.updated_at %></td>
+      <td><%= @users.size %></td>
+      <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_users_path, title: "", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать всё' }) do %>
+      		<%= icon("list-ul", class: "bi bi-list-ul") %>
+      	  <% end %>
+
+      	 
+      	</div>
       </td>
     </tr>
     <tr>

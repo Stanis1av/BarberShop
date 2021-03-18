@@ -4,9 +4,17 @@
     <div class="card-header">Навигация</div>
   <ul class="nav flex-column list-group nav-sm list-group-sm">
   <li class="nav-item">
-    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_bookings_path %>">Active</a>
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_bookings_path %>">Записи</a>
   </li>
-  
+  <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_users_path) %>" href="<%= admin_users_path %>">Пользователи</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_users_path %>">.....</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_users_path %>">.....</a>
+  </li>
   </ul>
   </div>
 </div>

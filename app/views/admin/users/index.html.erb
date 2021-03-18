@@ -1,0 +1,31 @@
+<h3>Список пользователей</h3>
+<hr/>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th class="" scope="col">Id</th>
+      <th class="" scope="col">Имя</th>
+      <th class="" scope="col">Почта</th>
+      <th class="" scope="col">Пароль</th>
+      <th class="" scope="col">Дата создания</th>
+      <th class="" scope="col">Роль</th>
+      <th class="shrink" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <%# Devise::Encryptor.digest(user, :password) %>
+      <td>1<%= user.encrypted_password %></td>
+      <td><%= user.created_at %></td>
+      <td>....</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
