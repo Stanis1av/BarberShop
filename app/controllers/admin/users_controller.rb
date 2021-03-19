@@ -4,9 +4,21 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
+    @users = User.find(params[:id])
   end
 
   def new
+    @users = User.new
+  end
+
+  def create
+    @users = User.new(user_params)
+
+    if @users.save
+      redirect_to admin_users_url, notice: "Пользователь успешно создан (админ)"
+    else
+      render action: 'new', alert: "Создание нового пользователя провалилось (админ)"
+    end
   end
 
   def edit
@@ -24,6 +36,12 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      redirect_to admin_users_url, notice: "Успешно удалено!"
+    else
+      redirect_to admin_users_url, alert: "Не удалось удалить объект"
+    end
   end
 
   private
