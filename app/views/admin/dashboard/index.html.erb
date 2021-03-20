@@ -14,7 +14,7 @@
   <tbody>
     <tr>
       <td><%= link_to 'Онлайн запись', admin_bookings_path %></td>
-      <td><%= @bookings.last.updated_at %></td>
+      <td><%= booking_last_update %></td>
       <td><%= @bookings.size %></td>
       <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_bookings_path, title: "", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать всё' }) do %>
       		<%= icon("list-ul", class: "bi bi-list-ul") %>
@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <td><%= link_to 'Пользователи', admin_users_path %></td>
-      <td><%= @users.last.updated_at %></td>
+      <td><%= user_last_update %></td>
       <td><%= @users.size %></td>
       <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_users_path, title: "", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать всё' }) do %>
       		<%= icon("list-ul", class: "bi bi-list-ul") %>
