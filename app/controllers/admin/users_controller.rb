@@ -49,17 +49,13 @@ class Admin::UsersController < Admin::BaseController
   def user_params
     params.require(:user).permit( :id,
                                   :email,
-                                  :encrypted_password,
-                                  :reset_password_token,
-                                  :reset_password_sent_at,
-                                  :remember_created_at,
+                                  :username,
+                                  :password,
+                                  :password_confirmation,
                                   :created_at,
                                   :updated_at,
-                                  :username,
-                                  :superadmin_role,
-                                  :supervisor_role,
-                                  :salon_manager_role,
-                                  :user_role)
+                                  :role)
+
   end
 
 end
