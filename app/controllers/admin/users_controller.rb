@@ -17,7 +17,7 @@ class Admin::UsersController < Admin::BaseController
     if @users.save
       redirect_to admin_users_url, notice: "Пользователь успешно создан (админ)"
     else
-      render action: 'new', alert: "Создание нового пользователя провалилось (админ)"
+      render admin_users_url, alert: "Создание нового пользователя провалилось (админ)"
     end
   end
 
@@ -26,12 +26,23 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
 
-    if @users.update(user_params)
-      redirect_to admin_users_url, notice: "Успешно отредактированно!"
+    if user_params[:password].blank?
+      user_params.delete(:password)
+      user_params.delete(:password_confirmation)
+    end
+
+    successfully_updated = if needs_password?(@user, user_params)
+                             @user.update(user_params)
+                           else
+                             @user.update_without_password(user_params)
+                           end
+
+    if successfully_updated
+      redirect_to admin_users_url, notice: 'Пользователь был успешно обновлён'
     else
-      redirect_to admin_users_url, alert: "Не удалось отредактировать объект"
+      render :edit, alert: 'Не удалось обновить пользователя'
     end
   end
 
@@ -46,9 +57,16 @@ class Admin::UsersController < Admin::BaseController
 
   private
 
+  def needs_password?(_user, params)
+    params[:password].present?
+  end
+
+  def update_without_password(user_params)
+    user.update_without_password(user_params)
+  end
+
   def user_params
-    params.require(:user).permit( :id,
-                                  :email,
+    params.require(:user).permit( :email,
                                   :username,
                                   :password,
                                   :password_confirmation,
