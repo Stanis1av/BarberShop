@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'dashboard#index', as: :dashboard
+    resource :roles
     resources :bookings
     resources :users
   end
