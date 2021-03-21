@@ -19,8 +19,8 @@
     <tr>
       <td><%= user.id %></td>
       <td><%= user.username %></td>
-      <td><%= user.email %></td>
-      <td><%= user.role %></td>
+      <td>6<%= user.email %></td>
+      <td><%= user.role.name %></td>
       <td><%= user.updated_at %></td>
       <td><%= user.created_at %></td>
       <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_user_path(user), title: "Показать", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать' }) do %>

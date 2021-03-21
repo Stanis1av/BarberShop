@@ -4,6 +4,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: { user_role: 0, salon_manager_role: 1, admin_role: 2, superadmin_role: 3 }
+  belongs_to :role, optional: true
+  before_save :assign_role
+
+  def assign_role
+    self.role = Role.find_by var_name: 'regular' if role.nil?
+  end
+
+  # def admin?
+  #   role.name == 'Admin'
+  # end
+
+  # def admin?
+  #   role.name == 'Admin'
+  # end
+
+  # def admin?
+  #   role.name == 'Admin'
+  # end
+
 end
 

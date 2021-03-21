@@ -54,7 +54,7 @@ class Admin::UsersController < Admin::BaseController
                                   :password_confirmation,
                                   :created_at,
                                   :updated_at,
-                                  :role)
+                                  :role_id)
 
   end
 
