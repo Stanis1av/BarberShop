@@ -7,10 +7,10 @@
     <tr>
       <th class="" scope="col">Id</th>
       <th class="" scope="col">Имя</th>
-      <th class="" scope="col">Почта</th>
+      <th class="" scope="col">Почта</th>      
+      <th class="" scope="col">Роль</th>
       <th class="" scope="col">Последнее обновление</th>
       <th class="" scope="col">Дата создания</th>
-      <th class="" scope="col">Роль</th>
       <th class="shrink" scope="col"></th>
     </tr>
   </thead>
@@ -20,6 +20,7 @@
       <td><%= user.id %></td>
       <td><%= user.username %></td>
       <td><%= user.email %></td>
+      <td><%= user.role %></td>
       <td><%= user.updated_at %></td>
       <td><%= user.created_at %></td>
       <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_user_path(user), title: "Показать", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать' }) do %>
