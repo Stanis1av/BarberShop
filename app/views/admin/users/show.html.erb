@@ -12,43 +12,73 @@
 	  	<tr>
 	      <th scope="row">1</th>
 	      <td><b>ID</b></td>
-	      <td><%= @users.id %></td>
+	      <td><%= @user.id %></td>
 	    </tr>
 	    <tr>
 	      <th scope="row">2</th>
 	      <td><b>Имя пользователя</b></td>
-	      <td><%= @users.username %></td>
+	      <td><%= @user.username %></td>
 	    </tr>
 	    <tr>
 	      <th scope="row">3</th>
 	      <td><b>Почта</b></td>
-	      <td><%= @users.email %></td>
+	      <td><%= @user.email %></td>
 	    </tr>
 	    
 	    <tr>
 	      <th scope="row">4</th>
 	      <td><b>Роль</b></td>
-	      <td><%= @users.role.name %></td>
+	      <td><%= @user.role.name %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Каличество входов в аккаунт</b></td>
+	      <td><%= @user.sign_in_count %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>удаленный IP обновляется, когда пользователь входит в систему</b></td>
+	      <td><%= @user.current_sign_in_ip %></td>
+	    </tr> 
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>удаленный IP-адрес предыдущего входа в систему</b></td>
+	      <td><%= @user.last_sign_in_ip %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Дата регистрации</b></td>
+	      <td><%= @joined_on %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Дата последнего входа в аккаунт</b></td>
+	      <td><%= @last_login %></td> <!-- | <%#= @user.last_sign_in_at.to_formatted_s(:short) %> -->
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Не заходил в систему</b></td>
+	      <td><%= @user.sign_in_count %></td>
 	    </tr>
 	    <tr>
 	      <th scope="row">5</th>
 	      <td><b>Дата создания</b></td>
-	      <td><%= @users.created_at %></td>
+	      <td><%= @user.created_at %></td>
 	    </tr>
 	    <tr>
 	      <th scope="row">6</th>
 	      <td><b>Дата обновления</b></td>
-	      <td><%= @users.updated_at %></td>
+	      <td><%= @user.updated_at %></td>
 	    </tr>	    
 	    
 	  </tbody>
 	</table>
-	<%= link_to(edit_admin_user_path(@users), class: "btn btn-warning") do %>
+	<%= link_to(edit_admin_user_path(@user), class: "btn btn-warning") do %>
         <%= icon("pencil-square", class: "bi bi-pencil-square") %>
         Редактировать
     <% end %>
 
-    <%= link_to(admin_user_path(@users), method: :delete, title: "", class: "btn btn-danger", data: { confirm: 'Вы действительно хотите удалить объект?' }) do %>
+    <%= link_to(admin_user_path(@user), method: :delete, title: "", class: "btn btn-danger", data: { confirm: 'Вы действительно хотите удалить объект?' }) do %>
     	<%= icon("backspace-reverse", class: "bi bi-bi bi-backspace-reverse") %>
     	Удалить
     <% end %>
