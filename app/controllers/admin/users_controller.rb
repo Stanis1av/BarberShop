@@ -5,14 +5,6 @@ class Admin::UsersController < Admin::BaseController
 
   def show
     @user = User.find(params[:id])
-
-    @joined_on = @user.created_at.to_formatted_s(:short)
-
-    if @user.current_sign_in_at
-      @last_login = @user.current_sign_in_at.to_formatted_s(:short)
-    else
-      @last_login = 'never'
-    end
   end
 
   def new
