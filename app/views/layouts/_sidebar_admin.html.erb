@@ -7,13 +7,16 @@
     <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_bookings_path %>">Записи</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_locations_path) %>" href="<%= admin_locations_path %>">Локации</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_services_path) %>" href="<%= admin_services_path %>">Услуги</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_hairdressers_path) %>" href="<%= admin_hairdressers_path %>">Парикмахеры</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link list-group-item <%= 'active' if current_page?(admin_users_path) %>" href="<%= admin_users_path %>">Пользователи</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_users_path %>">.....</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link list-group-item <%= 'active' if current_page?(admin_bookings_path) %>" href="<%= admin_users_path %>">.....</a>
   </li>
   </ul>
   </div>

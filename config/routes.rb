@@ -11,8 +11,14 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'dashboard#index', as: :dashboard
     resource :roles
-    resources :bookings
     resources :users
+
+    resources :bookings
+
+    resources :locations
+    resources :services
+    resources :hairdressers
+
   end
   # For details on the DSL available within this fileshow see https://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,7 @@
 class AboutsController < ApplicationController
-    def show
+  load_and_authorize_resource
+
+  def show
 
   end
 end

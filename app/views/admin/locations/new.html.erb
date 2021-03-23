@@ -1,0 +1,24 @@
+<div class="col-sm-5">
+
+	<%= form_with model: [:admin, @location], local: true, url: admin_locations_path(@location) do |f| %>
+
+	   <div class="form-group">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :branch_name %><br />
+        <%= f.text_field :branch_name, autocomplete: "branch_name", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :location %><br />
+        <%= f.text_area :location, autocomplete: "location", class: "form-control", rows: 5 %>
+      </div>
+
+      <div class="actions">
+        <br/><%= f.submit "Создать", class: "btn btn-primary" %>
+      </div>
+    <% end %>	
+</div>

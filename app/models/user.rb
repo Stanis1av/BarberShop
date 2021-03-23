@@ -11,17 +11,21 @@ class User < ApplicationRecord
     self.role = Role.find_by var_name: 'regular' if role.nil?
   end
 
-  # def admin?
-  #   role.name == 'Admin'
-  # end
+  def super_admin?
+    role.var_name == 'super_admin'
+  end
 
-  # def admin?
-  #   role.name == 'Admin'
-  # end
+  def admin?
+    role.var_name == 'admin'
+  end
 
-  # def admin?
-  #   role.name == 'Admin'
-  # end
+  def salon_manager?
+    role.var_name == 'salon_manager'
+  end
+
+  def regular?
+    role.var_name == 'regular'
+  end
 
 end
 

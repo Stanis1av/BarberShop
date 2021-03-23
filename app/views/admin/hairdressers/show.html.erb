@@ -1,0 +1,55 @@
+  <h3 class="text-center">Парикмахер</h3>
+
+    <table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Наименование</th>
+	      <th scope="col">Значение</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	      <th scope="row">1</th>
+	      <td><b>ID</b></td>
+	      <td><%= @hairdresser.id %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td><b>Имя парикмахера</b></td>
+	      <td><%= @hairdresser.name %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Должность</b></td>
+	      <td><%= @hairdresser.position %></td>
+	    </tr>
+	    
+	    <tr>
+	      <th scope="row">4</th>
+	      <td><b>О себе</b></td>
+	      <td><%= @hairdresser.description %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Дата создания</b></td>
+	      <td><%= @hairdresser.created_at %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">6</th>
+	      <td><b>Дата обновления</b></td>
+	      <td><%= @hairdresser.updated_at %></td>
+	    </tr>	    
+	    
+	  </tbody>
+	</table>
+	<%= link_to(edit_admin_hairdresser_path(@hairdresser), class: "btn btn-warning") do %>
+        <%= icon("pencil-square", class: "bi bi-pencil-square") %>
+        Редактировать
+    <% end %>
+
+    <%= link_to(admin_hairdresser_path(@hairdresser), method: :delete, title: "", class: "btn btn-danger", data: { confirm: 'Вы действительно хотите удалить объект?' }) do %>
+    	<%= icon("backspace-reverse", class: "bi bi-bi bi-backspace-reverse") %>
+    	Удалить
+    <% end %>
+    <br/>

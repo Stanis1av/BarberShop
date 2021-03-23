@@ -1,4 +1,5 @@
 class Admin::BookingsController < Admin::BaseController
+  load_and_authorize_resource
   def index
     @bookings_admin = Booking.all
   end
@@ -64,4 +65,6 @@ class Admin::BookingsController < Admin::BaseController
                                     :phone_num,
                                     :note)
   end
+
+
 end

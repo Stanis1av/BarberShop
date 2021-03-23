@@ -1,0 +1,43 @@
+<h3>Парикмахеры</h3>
+<hr/>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th class="" scope="col">Id</th>
+      <th class="" scope="col">Имя</th>
+      <th class="" scope="col">Почта</th>      
+      <th class="" scope="col">Роль</th>
+      <th class="" scope="col">Последнее обновление</th>
+      <th class="" scope="col">Дата создания</th>
+      <th class="shrink" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @hairdressers.each do |hairdresser| %>
+    <tr>
+      <td><%= hairdresser.id %></td>
+      <td><%= hairdresser.name %></td>
+      <td><%= hairdresser.position %></td>
+      <td><%= hairdresser.description %></td>
+      <td><%= hairdresser.updated_at %></td>
+      <td><%= hairdresser.created_at %></td>
+      <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_hairdresser_path(hairdresser), title: "Показать", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать' }) do %>
+          <%= icon("info-circle", class: "bi bi-info-circle") %>
+          <% end %>
+
+          <%= link_to(edit_admin_hairdresser_path(hairdresser), title: "Редактировать", class: "btn btn-outline-warning", data: { toggle: 'tooltip', placement: 'top', original_title: 'Редактировать' }) do %>
+          <%= icon("pencil-square", class: "bi bi-pencil-square") %>
+          <% end %>
+
+          <%= link_to(admin_hairdresser_path(hairdresser), method: :delete, title: "Удалить", class: "btn btn-outline-danger", data: { toggle: 'tooltip', placement: 'top', original_title: 'Удалить', confirm: 'Вы действительно хотите удалить объект?' }) do %>
+          <%= icon("backspace-reverse", class: "bi bi-bi bi-backspace-reverse") %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,25 @@
+<div class="col-sm-5">
+    <h3 class="text-center">Редактировать парикмахера</h3>
+
+    <%= form_with model: [:admin, @location], local: true, url: admin_location_path(@location), method: :put do |f| %>
+      <div class="form-group">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :branch_name %><br />
+        <%= f.text_field :branch_name, autocomplete: "branch_name", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :location %><br />
+        <%= f.text_area :location, autocomplete: "location", class: "form-control", rows: 5 %>
+      </div>
+    <br/>
+      <div class="actions">
+        <%= f.submit "Редактировать", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+</div>

@@ -1,0 +1,43 @@
+<h3>Парикмахеры</h3>
+<hr/>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th class="" scope="col">Id</th>
+      <th class="" scope="col">Город</th>
+      <th class="" scope="col">Имя салона</th>      
+      <th class="" scope="col">Местоположение</th>
+      <th class="" scope="col">Последнее обновление</th>
+      <th class="" scope="col">Дата создания</th>
+      <th class="shrink" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @locations.each do |location| %>
+    <tr>
+      <td><%= location.id %></td>
+      <td><%= location.city %></td>
+      <td><%= location.branch_name %></td>
+      <td><%= location.location %></td>
+      <td><%= location.updated_at %></td>
+      <td><%= location.created_at %></td>
+      <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_location_path(location), title: "Показать", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать' }) do %>
+          <%= icon("info-circle", class: "bi bi-info-circle") %>
+          <% end %>
+
+          <%= link_to(edit_admin_location_path(location), title: "Редактировать", class: "btn btn-outline-warning", data: { toggle: 'tooltip', placement: 'top', original_title: 'Редактировать' }) do %>
+          <%= icon("pencil-square", class: "bi bi-pencil-square") %>
+          <% end %>
+
+          <%= link_to(admin_location_path(location), method: :delete, title: "Удалить", class: "btn btn-outline-danger", data: { toggle: 'tooltip', placement: 'top', original_title: 'Удалить', confirm: 'Вы действительно хотите удалить объект?' }) do %>
+          <%= icon("backspace-reverse", class: "bi bi-bi bi-backspace-reverse") %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
