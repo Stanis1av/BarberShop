@@ -2,6 +2,9 @@ class Admin::UsersController < Admin::BaseController
   load_and_authorize_resource
   def index
     @users = User.all
+    # respond_with @users
+
+    @users = User.accessible_by(current_ability)
   end
 
   def show
@@ -9,6 +12,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def new
+    select_role
     @users = User.new
   end
 
@@ -23,6 +27,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
+    select_role
     @users = User.find(params[:id])
   end
 
@@ -57,6 +62,16 @@ class Admin::UsersController < Admin::BaseController
   end
 
   private
+
+  def select_role
+    @role = if current_user.super_admin?
+      Role.all
+    elsif current_user.admin?
+      Role.where(var_name: 'salon_manager')
+    elsif current_user.salon_manager?
+      Role.where(var_name: 'regular')
+    end
+  end
 
   def needs_password?(_user, params)
     params[:password].present?

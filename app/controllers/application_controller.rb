@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # before_action :authenticate_user!
+
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.html { redirect_to main_app.root_url, alert: 'У вас нет прав доступа к этой странице.' }
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
