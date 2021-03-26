@@ -1,9 +1,8 @@
-<div class="row">
-  	<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+<div class="col-sm-5">
 
     <h2 class="text-center">Свяжитесь с нами</h2>
 
-		<%= form_for :contact, url: contacts_path do |f| %>
+		<%= form_for model: [:admin, @contact], local: true, url: admin_contacts_path(@contact) do |f| %>
 			 <div class="form-group">
 				<%= f.label :email %><br/>
 				<%= f.text_field :email, class: "form-control" %>
@@ -18,5 +17,4 @@
 			</div>
 		<% end %>
 
-	</div>
 </div>
