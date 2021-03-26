@@ -13,8 +13,9 @@
       
         <% if user_signed_in? %>
         <b class="text-light"><%= current_user.username %></b>
-
-          | <%= link_to 'Панель администратора', admin_dashboard_path, class: "btn btn-outline-success" %>
+          | <% unless current_user.regular? %>
+            <%= link_to 'Панель администратора', admin_dashboard_path, class: "btn btn-outline-success" %>
+          <% end %>
           <%= link_to 'Редактировать аккаунт', edit_user_registration_path, class: "btn btn-outline-warning" %>
           <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
 
