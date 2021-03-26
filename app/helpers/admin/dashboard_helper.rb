@@ -38,4 +38,12 @@ module Admin::DashboardHelper
       @users.last.updated_at
     end
   end
+
+  def contact_last_update
+    if @contacts.empty?
+      0
+    else
+      @contacts.last.updated_at
+    end
+  end
 end

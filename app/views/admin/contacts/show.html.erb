@@ -1,0 +1,45 @@
+  <h2 class="text-center">Сообщение</h2>
+
+    <table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Наименование</th>
+	      <th scope="col">Значение</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	      <th scope="row">1</th>
+	      <td><b>ID</b></td>
+	      <td><%= @contact.id %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td><b>Почта</b></td>
+	      <td><%= @contact.email %></td>
+	    </tr>
+	    
+	    <tr>
+	      <th scope="row">4</th>
+	      <td><b>Роль</b></td>
+	      <td><%= @contact.message %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">5</th>
+	      <td><b>Дата создания</b></td>
+	      <td><%= @contact.created_at %></td>
+	    </tr>    
+	    
+	  </tbody>
+	</table>
+	<%= link_to(edit_admin_contact_path(@contact), class: "btn btn-warning") do %>
+        <%= icon("pencil-square", class: "bi bi-pencil-square") %>
+        Редактировать
+    <% end %>
+
+    <%= link_to(admin_contact_path(@contact), method: :delete, title: "", class: "btn btn-danger", data: { confirm: 'Вы действительно хотите удалить объект?' }) do %>
+    	<%= icon("backspace-reverse", class: "bi bi-bi bi-backspace-reverse") %>
+    	Удалить
+    <% end %>
+    <br/>

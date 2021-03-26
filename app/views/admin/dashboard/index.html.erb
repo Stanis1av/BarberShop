@@ -83,6 +83,20 @@
       </td>
     </tr>
     <tr>
+      <td><%= link_to 'Связавшиеся с нами', admin_contacts_path %></td>
+      <td><%= contact_last_update %></td>
+      <td><%= @contacts.size %></td>
+      <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_contacts_path, title: "Показать всё", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать всё' }) do %>
+          <%= icon("list-ul", class: "bi bi-list-ul") %>
+          <% end %>
+
+         <%= link_to(new_admin_contact_path, title: "Добавить", class: "btn btn-outline-success", data: { toggle: 'tooltip', placement: 'top', original_title: 'Добавить' }) do %>
+          <%= icon("plus", class: "bi bi-plus") %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <tr>
       <td>...</td>
       <td>...</td>
       <td>...</td>

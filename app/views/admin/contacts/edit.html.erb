@@ -2,10 +2,10 @@
 
     <h2 class="text-center">Свяжитесь с нами</h2>
 
-		<%= form_for model: [:admin, @contact], local: true, url: admin_contacts_path(@contact), method: :put do |f| %>
+		<%= form_with model: [:admin, @contact], local: true, url: admin_contacts_path(@contact), method: :put do |f| %>
 			 <div class="form-group">
 				<%= f.label :email %><br/>
-				<%= f.text_field :email, class: "form-control" %>
+				<%= f.email_field :email, class: "form-control" %>
 			</div>
 			 <div class="form-group">
 				<%= f.label :message %><br/>

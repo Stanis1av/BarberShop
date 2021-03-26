@@ -41,7 +41,7 @@ class Admin::ContactsController < Admin::BaseController
   def destroy
     @contact = Contact.find(params[:id])
 
-    if @contact.destroy?
+    if @contact.destroy
       redirect_to admin_contacts_path
     else
       redirect_to admin_contacts_path

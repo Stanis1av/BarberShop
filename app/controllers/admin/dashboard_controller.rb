@@ -8,5 +8,7 @@ class Admin::DashboardController < Admin::BaseController
     @hairdressers = Hairdresser.all
 
     @users = User.all
+
+    @contacts = Contact.all
   end
 end
