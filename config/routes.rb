@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resource :abouts, only: [:show],  path_names: { :show => '' }
 
   namespace :admin do
-    get '/', to: 'dashboard#index', as: :dashboard
+    root to: 'dashboard#index', as: :dashboard
     resource :roles
     resources :users
 
