@@ -1,6 +1,6 @@
 <div class="col-sm-5">
-    <h3 class="text-center">Редактировать парикмахера</h3>
-
+  <h3>Редактировать услугу</h3>
+  <hr/>
     <%= form_with model: [:admin, @service], local: true, url: admin_service_path(@service), method: :put do |f| %>
       <div class="form-group">
         <%= f.label :name %><br />

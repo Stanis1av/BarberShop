@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to({controller: controller_name}, title: "Список", class: "nav-link #{'active' if current_page?(controller: controller_name)}", data: { toggle: 'tooltip', placement: 'top', original_title: 'Список' }) do %>
+        <%= icon("list-ul", class: "bi bi-list-ul") %> Список
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to({controller: controller_name, action: "new"}, title: "Создать", class: "nav-link #{'active' if current_page?(controller: controller_name, action: 'new')}", data: { toggle: 'tooltip', placement: 'top', original_title: 'Создать' }) do %>
+        <%= icon("plus", class: "bi bi-plus") %> Создать
+    <% end %>
+  </li>
+</ul>
+<!-- <br/> -->

@@ -1,12 +1,7 @@
 <h3>Список записей</h3>
 <hr/>
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <%= link_to(new_admin_booking_path, title: "Создать", class: "nav-link active", data: { toggle: 'tooltip', placement: 'top', original_title: 'Создать' }) do %>
-        <%= icon("plus", class: "bi bi-plus") %> Создать
-    <% end %>
-  </li>
-</ul>
+<%= render 'admin/nav_links' %>
+
 <div class="table-responsive">
 <table class="table table-striped table-sm">
   <thead>

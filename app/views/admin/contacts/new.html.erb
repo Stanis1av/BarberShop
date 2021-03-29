@@ -1,7 +1,9 @@
 <div class="col-sm-5">
 
-    <h2 class="text-center">Свяжитесь с нами</h2>
-
+    <h2 class="text-center">Создать новое сообщение</h2>
+    <hr/>
+    <%= render 'admin/nav_links' %>
+    
 		<%= form_with model: [:admin, @contact], local: true do |f| %>
 			 <div class="form-group">
 				<%= f.label :email %><br/>

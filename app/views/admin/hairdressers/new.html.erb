@@ -1,5 +1,8 @@
 <div class="col-sm-5">
-
+  <h3>Создать нового парикмахера</h3>
+  <hr/>
+  <%= render 'admin/nav_links' %>
+  
 	<%= form_with model: [:admin, @hairdresser], local: true, url: admin_hairdressers_path(@hairdresser) do |f| %>
 
 	<div class="form-group">

@@ -1,4 +1,7 @@
 <div class="col-sm-5">
+  <h3>Создать новую услугу</h3>
+  <hr/>
+  <%= render 'admin/nav_links' %>
 
 	<%= form_with model: [:admin, @service], local: true, url: admin_services_path(@service) do |f| %>
 

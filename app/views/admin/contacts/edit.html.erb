@@ -1,7 +1,7 @@
 <div class="col-sm-5">
 
     <h2 class="text-center">Свяжитесь с нами</h2>
-
+    <hr/>
 		<%= form_with model: [:admin, @contact], local: true, url: admin_contacts_path(@contact), method: :put do |f| %>
 			 <div class="form-group">
 				<%= f.label :email %><br/>

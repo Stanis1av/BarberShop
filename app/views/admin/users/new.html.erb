@@ -1,4 +1,7 @@
 <div class="col-sm-5">
+  <h3>Создать нового пользователя</h3>
+  <hr/>
+  <%= render 'admin/nav_links' %>
 
 	<%= form_with model: [:admin, @users], local: true, url: admin_users_path(@users) do |f| %>
 

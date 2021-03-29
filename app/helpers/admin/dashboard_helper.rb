@@ -46,4 +46,5 @@ module Admin::DashboardHelper
       @contacts.last.updated_at
     end
   end
+
 end

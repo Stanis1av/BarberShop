@@ -1,12 +1,7 @@
-<h3>Парикмахеры</h3>
+<h3>Услуги</h3>
 <hr/>
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <%= link_to(new_admin_service_path, title: "Создать", class: "nav-link active", data: { toggle: 'tooltip', placement: 'top', original_title: 'Создать' }) do %>
-        <%= icon("plus", class: "bi bi-plus") %> Создать
-    <% end %>
-  </li>
-</ul>
+<%= render 'admin/nav_links' %>
+
 <div class="table-responsive">
 <table class="table table-striped table-sm">
   <thead>
