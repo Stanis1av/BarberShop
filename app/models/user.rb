@@ -7,6 +7,8 @@ class User < ApplicationRecord
   belongs_to :role, optional: true
   before_save :assign_role
 
+  enum :area_of_responsibility {:not || nil || '' => 0, :salon => 1, :city = 2, :all => 3}
+
   def assign_role
     self.role = Role.find_by var_name: 'regular' if role.nil?
   end
