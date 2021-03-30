@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # BarberShop_development=# insert into locations (city, branch_name, location, created_at, updated_at) values ('Самара', 'BarberShop Кирова', 'Ул. Кирова, д. 201', '2021-02-23 15:59', '2021-02-23 15:59');
+# User.create!([
+# { email: '', username: 'super_admin', password: '', role_id: '' },
+# { email: '', username: 'super_admin', password: '', role_id: '' },
+# { email: '', username: 'super_admin', password: '', role_id: '' },
+# { email: '', username: 'super_admin', password: '', role_id: '' },
+# ])
+
 Location.create!([
 { city: 'Самара', branch_name: 'BarberShop Ново-Садовая', location: 'Ул. Ново-Садовая, д. 178б' },
 { city: 'Самара', branch_name: 'BarberShop Самарская', location: 'Ул. Самарская, д. 76' },

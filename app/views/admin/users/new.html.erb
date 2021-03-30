@@ -39,6 +39,11 @@
         :role_id, @role, :id, :name, { promt: true }, class: 'custom-select' 
         ) %>
       </div>
+      <div>
+        <%= f.label :area %>
+        <%= f.collection_select(
+        :area, @area, :id, :city, { promt: true }, class: 'custom-select') %>
+      </div>
 
       <div class="actions">
         <br/><%= f.submit "Зарегистрироваться", class: "btn btn-primary" %>

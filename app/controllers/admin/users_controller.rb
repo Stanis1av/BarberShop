@@ -73,6 +73,24 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
+  def select_area
+    @area = if current_user.super_admin?
+      Location.all
+    elsif current_user.admin?
+      Location.where(branch_name)
+  end
+
+  #=====|Accsess|===================
+  def select_area
+    @area = if current_user.super_admin?
+      Location.all
+    elsif current_user.admin?
+      Location.where(city == current_user.area)
+    elsif current_user.salon_manager?
+      Location.where(branch_name == current_user.area)
+    end
+  end
+
   def needs_password?(_user, params)
     params[:password].present?
   end
@@ -88,7 +106,8 @@ class Admin::UsersController < Admin::BaseController
                                   :password_confirmation,
                                   :created_at,
                                   :updated_at,
-                                  :role_id)
+                                  :role_id,
+                                  :area)
 
   end
 
