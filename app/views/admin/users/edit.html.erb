@@ -16,6 +16,12 @@
         <%= f.label :role_id %><br />
         <%= f.collection_select( :role_id, @role, :id, :name, { promt: true }, class: 'custom-select') %>
       </div>
+
+      <div>
+        <%= f.label :area %>
+        <%= f.collection_select(
+        :area, @area, :city, :branch_name,  { promt: true }, class: 'custom-select') %>
+      </div>
     <br/>
       <div class="actions">
         <%= f.submit "Обновить", class: "btn btn-primary" %>

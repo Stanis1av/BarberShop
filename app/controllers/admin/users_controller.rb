@@ -13,6 +13,7 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     select_role
+    select_area
     @users = User.new
   end
 
@@ -28,6 +29,7 @@ class Admin::UsersController < Admin::BaseController
 
   def edit
     select_role
+    select_area
     @users = User.find(params[:id])
   end
 
@@ -73,21 +75,14 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
-  def select_area
-    @area = if current_user.super_admin?
-      Location.all
-    elsif current_user.admin?
-      Location.where(branch_name)
-  end
-
   #=====|Accsess|===================
   def select_area
     @area = if current_user.super_admin?
-      Location.all
+      @city = Location.all.map {|l| l.city}.uniq
     elsif current_user.admin?
-      Location.where(city == current_user.area)
+      Location.where(city: current_user.area)
     elsif current_user.salon_manager?
-      Location.where(branch_name == current_user.area)
+      Location.where(branch_name: current_user.area)
     end
   end
 
