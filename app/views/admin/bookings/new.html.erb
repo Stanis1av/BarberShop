@@ -24,7 +24,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
     <% @locations_admin.each do |location| %>
 
-    <div class="col mb-4">
+    <div class="k1 col mb-4" id='k1'>
     <div class="card">
       <img src="<%= asset_path('map_city.png') %>" class="card-img-top">
       <div class="card-body">
@@ -122,3 +122,17 @@
   <!-- </div> -->
 </div>
 <% end %>
+<script src=
+"https://code.jquery.com/jquery-3.5.1.min.js">
+    </script>
+  
+    <script>
+        // jQuery functions to hide and show the div
+        var items = document.querySelectorAll('.k1 > *');
+for (var i = 0; i < items.length; i++) {
+    items[i].style.display = 'none';
+}
+
+// , div.card, card-body
+    </script>
+
