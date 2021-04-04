@@ -47,16 +47,16 @@ ActiveRecord::Schema.define(version: 2021_03_29_154635) do
     t.string "name"
     t.string "position"
     t.string "description"
+    t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_hairdressers_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "city"
     t.string "branch_name"
     t.string "location"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(version: 2021_03_29_154635) do
     t.string "name"
     t.string "price"
     t.string "description"
+    t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_services_on_location_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,5 +97,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_154635) do
   add_foreign_key "bookings", "hairdressers"
   add_foreign_key "bookings", "locations"
   add_foreign_key "bookings", "services"
+  add_foreign_key "hairdressers", "locations"
+  add_foreign_key "services", "locations"
   add_foreign_key "users", "roles"
 end

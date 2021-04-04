@@ -20,6 +20,13 @@
         <%= f.text_area :description, autocomplete: "description", class: "form-control", rows: 5 %>
       </div>
 
+      <div class="form-group">
+        <%= f.label :location_id %>
+          <%= f.collection_select(
+        :location_id, @location, :id, :city_and_branch_name,{ promt: true }, class: 'custom-select' 
+        ) %>
+      </div>
+
       <div class="actions">
         <br/><%= f.submit "Создать", class: "btn btn-primary" %>
       </div>

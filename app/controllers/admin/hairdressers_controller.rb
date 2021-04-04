@@ -9,6 +9,7 @@ class Admin::HairdressersController < Admin::BaseController
   end
 
   def new
+    @location = Location.all
     @hairdresser = Hairdresser.new
   end
 
@@ -19,12 +20,13 @@ class Admin::HairdressersController < Admin::BaseController
       @hairdresser.save
       redirect_to admin_hairdressers_path, notice: 'Парикмахер успешно создан'
     else
-      render action: 'new', alert: 'Не удалось создать объект'
+      redirect_to admin_hairdressers_path, alert: 'Не удалось создать объект'
     end
   end
 
   def edit
     @hairdresser = Hairdresser.find(params[:id])
+    @location = Location.all
   end
 
   def update
@@ -54,7 +56,8 @@ class Admin::HairdressersController < Admin::BaseController
   def hairdresser_params
     params.require(:hairdresser).permit(:name,
                                         :position,
-                                        :description)
+                                        :description,
+                                        :location_id)
   end
 
 end

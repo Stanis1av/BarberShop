@@ -10,6 +10,8 @@
       <th class="" scope="col">Имя</th>
       <th class="" scope="col">Почта</th>      
       <th class="" scope="col">Роль</th>
+      <th class="" scope="col">Город</th>
+      <th class="" scope="col">Имя салона</th>
       <th class="" scope="col">Последнее обновление</th>
       <th class="" scope="col">Дата создания</th>
       <th class="shrink" scope="col"></th>
@@ -22,6 +24,8 @@
       <td><%= hairdresser.name %></td>
       <td><%= hairdresser.position %></td>
       <td><%= hairdresser.description %></td>
+      <td><%= hairdresser.location.city %></td>
+      <td><%= hairdresser.location.branch_name %></td>
       <td><%= hairdresser.updated_at %></td>
       <td><%= hairdresser.created_at %></td>
       <td><div class="btn-group btn-group-sm align-content-start" role="group"><%= link_to(admin_hairdresser_path(hairdresser), title: "Показать", class: "btn btn-outline-primary", data: { toggle: 'tooltip', placement: 'top', original_title: 'Показать' }) do %>

@@ -4,8 +4,6 @@ class CreateLocations < ActiveRecord::Migration[6.0]
       t.string :city
       t.string :branch_name
       t.string :location
-
-      t.timestamps
     end
   end
 end
