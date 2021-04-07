@@ -15,7 +15,7 @@ class Ability
           elsif user.admin?
 
             cannot :manage, Role
-            can [:read, :update, :destroy], User, role: {var_name: 'salon_manager'}, area: user.area
+            can [:read, :update, :destroy], User, role: {var_name: 'salon_manager'}, location: user.location.city
             can :create, User
             can :manage, :dashboard
 

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :role, optional: true
+  belongs_to :location
   before_save :assign_role
 
   enum area_of_responsibility: { not: 'not', salon: 'salon', city: 'city', area_all: 'area_all' }

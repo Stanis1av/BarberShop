@@ -102,7 +102,7 @@ class Admin::UsersController < Admin::BaseController
                                   :created_at,
                                   :updated_at,
                                   :role_id,
-                                  :area)
+                                  :location_id)
 
   end
 
